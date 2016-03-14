@@ -6,23 +6,16 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/14 15:29:37 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/03/14 15:49:19 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/03/14 17:16:25 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 int	main(int ac, char **av)
 {
-	int	i;
-
-	i = 1;
 	if (ac < 2)
 		return (ERROR);
-	while (av[i])
-	{
-		parse_fct(av[i]);
-		i++;
-	}
+	parse_opt(av);
 	return (0);
 }
