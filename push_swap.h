@@ -6,17 +6,17 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/14 12:24:30 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/03/15 15:30:57 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/03/15 18:45:32 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "libft.h"
+# include "libft.h"
 
-#define RED "\x1b[31m"
-#define RST "\x1b[0m"
+# define RED "\x1b[31m"
+# define RST "\x1b[0m"
 
 typedef struct		s_opt
 {
@@ -32,9 +32,9 @@ typedef struct		s_stack
 	struct s_stack	*prev;
 }					t_stack;
 
-int		g_op_count;
+int	g_op_count;
 
-int		parse_opt(int ac, char **argv);
-int		parse_error(void);
+int					parse_opt(int ac, char **argv);
+int					parse_error(int error_code);
 
 #endif
