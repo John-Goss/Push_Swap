@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parse_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/14 15:29:37 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/03/15 13:32:53 by jle-quer         ###   ########.fr       */
+/*   Created: 2016/03/15 13:05:25 by jle-quer          #+#    #+#             */
+/*   Updated: 2016/03/15 13:13:08 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+int	parse_error(void)
 {
-	if (ac < 2)
-		return (parse_error());
-	parse_opt(ac, av);
-	return (0);
+	ft_putendl_fd("ERROR", 2);
+	exit (0);
 }
