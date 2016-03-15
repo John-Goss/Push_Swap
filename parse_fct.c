@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/14 12:21:30 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/03/15 13:32:50 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/03/15 15:31:12 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int			parse_opt(int ac, char **argv)
 	int		i;
 
 	i = 1;
+	g_op_count = 0;
 	init_opt(&opt);
 	while (i < ac)
 	{
