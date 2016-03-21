@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 12:23:57 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/03/21 13:22:39 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/03/21 14:46:43 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ static int	set_opt(t_opt *opt, char *av)
 		return (-1);
 	while (av[i])
 	{
-		if (ft_isdigit(av[i]) == 1)
+		if (ft_isdigit(av[i]) == 1 && (av[i - 1] || av[i + 1]))
+			return (-1);
+		else if (ft_isdigit(av[i]) == 1)
 			return (0);
 		else if (av[i] == 'v' && opt->v == 0)
 			opt->v += 1;
@@ -62,6 +64,8 @@ int			parse_opt(int ac, char **argv)
 			else if (set_opt(&opt, argv[i] + 1) == 0)
 				break ;
 		}
+		else
+			break;
 		i++;
 	}
 	parse_stack(ac, argv, i);
