@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/14 12:24:30 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/03/15 18:45:32 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/03/21 13:22:37 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,26 @@ typedef struct		s_opt
 	int				r;
 }					t_opt;
 
+typedef struct		s_elem
+{
+	int				nbr;
+	struct s_elem	*next;
+	struct s_elem	*prev;
+}					t_elem;
+
 typedef struct		s_stack
 {
 	int				nbr;
-	struct s_stack	*next;
-	struct s_stack	*prev;
+	struct s_elem	*first;
+	struct s_elem	*last;
 }					t_stack;
 
 int	g_op_count;
 
 int					parse_opt(int ac, char **argv);
 int					parse_error(int error_code);
+int					add_elem(t_stack *stack, int nbr);
+void				free_list(t_stack *stack);
+int					parse_stack(int argc, char **argv, int i);
 
 #endif
