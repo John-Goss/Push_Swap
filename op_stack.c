@@ -12,15 +12,29 @@
 
 #include "push_swap.h"
 
-void	swap_a(t_stack *stack)
+int	swap(t_stack *stack)
 {
-	t_elem	*elem;
-//	t_elem	*tmp;
+	int	tmp;
 
-	elem = stack->first;
+	if (!stack || stack->nbr < 2)
+		return (0);
+	tmp = stack->first->nbr;
+	stack->first->nbr = stack->first->next->nbr;
+	stack->first->next->nbr = tmp;
+	return (1);
 }
 
-void	rotate(t_stack *stack)
+int	rotate(t_stack *stack)
 {
-	(void)stack;
+	t_elem	*tmp;
+
+	if (!stack || stack->nbr < 2)
+		return (0);
+	tmp = stack->first->next;
+	stack->last->next = stack->first;
+	stack->first->next = NULL;
+	stack->first->prev = stack->last;
+	stack->last = stack->first;
+	stack->first = tmp;
+	return (1);
 }
