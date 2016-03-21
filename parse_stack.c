@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 12:24:32 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/03/21 15:34:58 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/03/21 15:44:19 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,18 +49,6 @@ void		free_list(t_stack *stack)
 	}
 }
 
-static void	print_stack(t_stack *stack)
-{
-	t_elem *elem;
-
-	elem = stack->first;
-	while (elem)
-	{
-		ft_printf("%d\n", elem->nbr);
-		elem = elem->next;
-	}
-}
-
 int			parse_stack(int argc, char **argv, int i)
 {
 	t_stack	stack_a;
@@ -85,6 +73,6 @@ int			parse_stack(int argc, char **argv, int i)
 		add_elem(&stack_a, ft_atoi(argv[argc]));
 		argc--;
 	}
-	print_stack(&stack_a);
+	op_stack(&stack_a, &stack_b);
 	return (1);
 }
