@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 12:24:32 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/03/21 15:44:19 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/03/21 18:05:48 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,17 @@ int			add_elem(t_stack *stack, int nbr)
 		return (-1);
 	elem->nbr = nbr;
 	elem->next = stack->first;
-	elem->prev = stack->last;
 	stack->first = elem;
 	if (stack->nbr == 0)
 		stack->last = elem;
+	elem->prev = stack->last;
 	stack->nbr += 1;
+	while (elem->next)
+	{
+		if (elem->next->nbr == nbr)
+			return (parse_error(3));
+		elem = elem->next;
+	}
 	return (1);
 }
 
@@ -73,6 +79,7 @@ int			parse_stack(int argc, char **argv, int i)
 		add_elem(&stack_a, ft_atoi(argv[argc]));
 		argc--;
 	}
-	op_stack(&stack_a, &stack_b);
+	print_stack(&stack_a);
+	ft_printf("\n%d\n------\n%d\n", stack_a.first->nbr, stack_a.last->prev->nbr);
 	return (1);
 }
