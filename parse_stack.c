@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 12:24:32 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/03/21 14:46:47 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/03/21 15:34:58 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,20 +69,21 @@ int			parse_stack(int argc, char **argv, int i)
 
 	init_stack(&stack_a);
 	init_stack(&stack_b);
-	while (i < argc)
+	argc -= 1;
+	while (argc >= i)
 	{
 		j = 1;
-		if (argv[i][0] == '-')
-			while (argv[i][j])
+		if (argv[argc][0] == '-')
+			while (argv[argc][j])
 			{
-				if (ft_isdigit(argv[i][j]) == 0)
+				if (ft_isdigit(argv[argc][j]) == 0)
 					return (parse_error(2));
 				j++;
 			}
-		else if (ft_isdigit(*argv[i]) == 0)
+		else if (ft_isdigit(*argv[argc]) == 0)
 			return (parse_error(2));
-		add_elem(&stack_a, ft_atoi(argv[i]));
-		i++;
+		add_elem(&stack_a, ft_atoi(argv[argc]));
+		argc--;
 	}
 	print_stack(&stack_a);
 	return (1);
