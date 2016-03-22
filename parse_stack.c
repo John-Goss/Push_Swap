@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 12:24:32 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/03/21 18:05:48 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/03/22 13:19:21 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,22 @@ int			add_elem(t_stack *stack, int nbr)
 	if (!(elem = (t_elem *)malloc(sizeof(*elem))))
 		return (-1);
 	elem->nbr = nbr;
-	elem->next = stack->first;
-	stack->first = elem;
 	if (stack->nbr == 0)
-		stack->last = elem;
-	elem->prev = stack->last;
-	stack->nbr += 1;
-	while (elem->next)
 	{
-		if (elem->next->nbr == nbr)
-			return (parse_error(3));
-		elem = elem->next;
+		elem->next = NULL;
+		elem->prev = NULL;
+		stack->first = elem;
+		stack->last = elem;
 	}
-	return (1);
+	else
+	{
+		stack->first->prev = elem;
+		elem->next = stack->first;
+		elem->prev = NULL;
+		stack->first = elem;
+	}
+	stack->nbr += 1;
+	return (0);
 }
 
 void		free_list(t_stack *stack)
@@ -80,6 +83,5 @@ int			parse_stack(int argc, char **argv, int i)
 		argc--;
 	}
 	print_stack(&stack_a);
-	ft_printf("\n%d\n------\n%d\n", stack_a.first->nbr, stack_a.last->prev->nbr);
-	return (1);
+	return (0);
 }
