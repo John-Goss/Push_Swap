@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/14 12:24:30 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/03/22 12:26:04 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/03/22 13:44:48 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,7 @@ int					add_elem(t_stack *stack, int nbr);
 void				free_list(t_stack *stack);
 int					parse_stack(int argc, char **argv, int i);
 void				print_stack(t_stack *stack);
+int					rotate(t_stack *stack, int reverse);
+int					swap(t_stack *stack);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 12:24:32 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/03/22 13:19:21 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/03/22 13:53:37 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,14 @@ int			parse_stack(int argc, char **argv, int i)
 		add_elem(&stack_a, ft_atoi(argv[argc]));
 		argc--;
 	}
+	print_stack(&stack_a);
+	ft_printf("\n------\n\n");
+	swap(&stack_a);
+	ft_printf("\n------\n\n");
+	print_stack(&stack_a);
+	ft_printf("\n------\n\n");
+	rotate(&stack_a, 1);
+	ft_printf("\n------\n\n");
 	print_stack(&stack_a);
 	return (0);
 }
