@@ -14,7 +14,11 @@
 
 int	main(int ac, char **av)
 {
-	if (ac < 2)
+	g_opt_r = 0;
+	g_opt_c = 0;
+	g_opt_v = 0;
+
+if (ac < 2)
 		return (parse_error(2));
 	parse_opt(ac, av);
 	return (0);

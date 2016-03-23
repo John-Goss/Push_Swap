@@ -63,6 +63,7 @@ int				add_elem(t_stack *stack, long nbr)
 		stack->first = elem;
 	}
 	stack->nbr += 1;
+	check_dbl(stack);
 	return (0);
 }
 
@@ -88,7 +89,7 @@ int				parse_stack(int argc, char **argv, int i)
 
 	init_stack(&stack_a);
 	init_stack(&stack_b);
-	while ((argc -=1) >= i)
+	while (--argc >= i)
 	{
 		j = 1;
 		if (argv[argc][0] == '-')
@@ -101,8 +102,6 @@ int				parse_stack(int argc, char **argv, int i)
 		else if (ft_isdigit(*argv[argc]) == 0)
 			return (parse_error(2));
 		add_elem(&stack_a, ft_atoi_long(argv[argc]));
-		check_dbl(&stack_a);
-		argc--;
 	}
 	sort_stack(&stack_a, &stack_b);
 	return (0);

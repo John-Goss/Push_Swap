@@ -18,13 +18,6 @@
 # define RED "\x1b[31m"
 # define RST "\x1b[0m"
 
-typedef struct		s_opt
-{
-	int				v;
-	int				c;
-	int				r;
-}					t_opt;
-
 typedef struct		s_elem
 {
 	int				nbr;
@@ -40,6 +33,9 @@ typedef struct		s_stack
 }					t_stack;
 
 int	g_op_count;
+int	g_opt_r;
+int	g_opt_c;
+int	g_opt_v;
 
 int					parse_opt(int ac, char **argv);
 int					parse_error(int error_code);
