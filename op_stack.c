@@ -14,9 +14,14 @@
 
 int	push(t_stack *a, t_stack *b)
 {
-	a = b;
+	t_elem	*tmp;
 	if (!a)
 		return (-1);
+	add_elem(b, a->first->nbr);
+	tmp = a->first->next;
+	tmp->prev = NULL;
+	free(a->first);
+	a->first = tmp;
 	return (0);
 }
 

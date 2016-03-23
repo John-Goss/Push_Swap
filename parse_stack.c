@@ -107,12 +107,18 @@ int				parse_stack(int argc, char **argv, int i)
 	}
 	print_stack(&stack_a);
 	ft_printf("\n------\n\n");
-	rotate(&stack_a, 0);
+	push(&stack_a, &stack_b);
+	push(&stack_a, &stack_b);
+	push(&stack_a, &stack_b);
 	ft_printf("\n------\n\n");
 	print_stack(&stack_a);
 	ft_printf("\n------\n\n");
-	rotate(&stack_a, 1);
+	print_stack(&stack_b);
+	push(&stack_b, &stack_a);
+	push(&stack_b, &stack_a);
 	ft_printf("\n------\n\n");
 	print_stack(&stack_a);
+	ft_printf("\n------\n\n");
+	print_stack(&stack_b);
 	return (0);
 }

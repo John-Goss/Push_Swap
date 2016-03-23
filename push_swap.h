@@ -49,5 +49,6 @@ int					parse_stack(int argc, char **argv, int i);
 void				print_stack(t_stack *stack);
 int					rotate(t_stack *stack, int reverse);
 int					swap(t_stack *stack);
+int					push(t_stack *a, t_stack *b);
 
 #endif
