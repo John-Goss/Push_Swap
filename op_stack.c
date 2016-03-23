@@ -12,6 +12,14 @@
 
 #include "push_swap.h"
 
+int	push(t_stack *a, t_stack *b)
+{
+	a = b;
+	if (!a)
+		return (-1);
+	return (0);
+}
+
 int	swap(t_stack *stack)
 {
 	int	tmp;
@@ -42,12 +50,12 @@ int	rotate(t_stack *stack, int reverse)
 	else if (reverse == 1)
 	{
 		tmp = stack->last->prev;
-		stack->first->prev = stack->last;
-		stack->last->prev = NULL;
+		tmp->next = NULL;
 		stack->last->next = stack->first;
-		stack->first = stack->last;
+		stack->last->prev = NULL;
+		stack->first->prev = stack->last;
 		stack->last = tmp;
-		stack->last->next = NULL;
+		stack->first = stack->first->prev;
 	}
 	return (0);
 }

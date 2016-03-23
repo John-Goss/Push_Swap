@@ -20,6 +20,8 @@ int	parse_error(int error_code)
 		ft_putendl_fd("ERROR : Not Valid Argument.", 2);
 	else if (error_code == 3)
 		ft_putendl_fd("ERROR : Double Value.", 2);
+	else if (error_code == 4)
+		ft_putendl_fd("ERROR : Value is not a Int.", 2);
 	else
 		ft_putendl_fd("UNKNOWN ERROR.", 2);
 	exit(-1);

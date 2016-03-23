@@ -12,20 +12,42 @@
 
 #include "push_swap.h"
 
-static void	init_stack(t_stack *stack)
+static	void	init_stack(t_stack *stack)
 {
 	stack->nbr = 0;
 	stack->first = NULL;
 	stack->last = NULL;
 }
 
-int			add_elem(t_stack *stack, int nbr)
+static	int		check_dbl(t_stack *stack)
+{
+	t_elem	*ptr;
+	t_elem	*tmp;
+
+	tmp = stack->first;
+	while (tmp)
+	{
+		ptr = tmp->next;
+		while (ptr)
+		{
+			if (ptr->nbr == tmp->nbr)
+				return (parse_error(3));
+			ptr = ptr->next;
+		}
+		tmp = tmp->next;
+	}
+	return (0);
+}
+
+int				add_elem(t_stack *stack, long nbr)
 {
 	t_elem	*elem;
 
 	if (!(elem = (t_elem *)malloc(sizeof(*elem))))
 		return (-1);
-	elem->nbr = nbr;
+	if (nbr != (int)nbr)
+		return (parse_error(4));
+	elem->nbr = (int)nbr;
 	if (stack->nbr == 0)
 	{
 		elem->next = NULL;
@@ -44,7 +66,7 @@ int			add_elem(t_stack *stack, int nbr)
 	return (0);
 }
 
-void		free_list(t_stack *stack)
+void			free_list(t_stack *stack)
 {
 	t_elem	*elem;
 	t_elem	*next;
@@ -58,7 +80,7 @@ void		free_list(t_stack *stack)
 	}
 }
 
-int			parse_stack(int argc, char **argv, int i)
+int				parse_stack(int argc, char **argv, int i)
 {
 	t_stack	stack_a;
 	t_stack	stack_b;
@@ -79,12 +101,13 @@ int			parse_stack(int argc, char **argv, int i)
 			}
 		else if (ft_isdigit(*argv[argc]) == 0)
 			return (parse_error(2));
-		add_elem(&stack_a, ft_atoi(argv[argc]));
+		add_elem(&stack_a, ft_atoi_long(argv[argc]));
+		check_dbl(&stack_a);
 		argc--;
 	}
 	print_stack(&stack_a);
 	ft_printf("\n------\n\n");
-	swap(&stack_a);
+	rotate(&stack_a, 0);
 	ft_printf("\n------\n\n");
 	print_stack(&stack_a);
 	ft_printf("\n------\n\n");

@@ -43,7 +43,7 @@ int	g_op_count;
 
 int					parse_opt(int ac, char **argv);
 int					parse_error(int error_code);
-int					add_elem(t_stack *stack, int nbr);
+int					add_elem(t_stack *stack, long nbr);
 void				free_list(t_stack *stack);
 int					parse_stack(int argc, char **argv, int i);
 void				print_stack(t_stack *stack);
