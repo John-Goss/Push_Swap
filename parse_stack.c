@@ -88,8 +88,7 @@ int				parse_stack(int argc, char **argv, int i)
 
 	init_stack(&stack_a);
 	init_stack(&stack_b);
-	argc -= 1;
-	while (argc >= i)
+	while ((argc -=1) >= i)
 	{
 		j = 1;
 		if (argv[argc][0] == '-')
@@ -105,20 +104,6 @@ int				parse_stack(int argc, char **argv, int i)
 		check_dbl(&stack_a);
 		argc--;
 	}
-	print_stack(&stack_a);
-	ft_printf("\n------\n\n");
-	push(&stack_a, &stack_b);
-	push(&stack_a, &stack_b);
-	push(&stack_a, &stack_b);
-	ft_printf("\n------\n\n");
-	print_stack(&stack_a);
-	ft_printf("\n------\n\n");
-	print_stack(&stack_b);
-	push(&stack_b, &stack_a);
-	push(&stack_b, &stack_a);
-	ft_printf("\n------\n\n");
-	print_stack(&stack_a);
-	ft_printf("\n------\n\n");
-	print_stack(&stack_b);
+	sort_stack(&stack_a, &stack_b);
 	return (0);
 }

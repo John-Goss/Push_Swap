@@ -15,7 +15,7 @@
 int	push(t_stack *a, t_stack *b)
 {
 	t_elem	*tmp;
-	if (!a)
+	if (!a || !a->first)
 		return (-1);
 	add_elem(b, a->first->nbr);
 	tmp = a->first->next;
