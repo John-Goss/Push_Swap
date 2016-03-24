@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 15:38:45 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/03/24 17:35:15 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/03/24 17:56:47 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	push(t_stack *a, t_stack *b)
 	free(a->first);
 	a->first = tmp;
 	a->nbr--;
+	g_op_count += 1;
 	return (0);
 }
 
@@ -36,6 +37,7 @@ int	swap(t_stack *stack)
 	tmp = stack->first->nbr;
 	stack->first->nbr = stack->first->next->nbr;
 	stack->first->next->nbr = tmp;
+	g_op_count += 1;
 	return (0);
 }
 
