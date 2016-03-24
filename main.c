@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/14 15:29:37 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/03/21 13:07:39 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/03/24 17:55:24 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ int	main(int ac, char **av)
 	g_opt_r = 0;
 	g_opt_c = 0;
 	g_opt_v = 0;
-
-if (ac < 2)
+	if (ac < 2)
 		return (parse_error(2));
 	parse_opt(ac, av);
 	return (0);

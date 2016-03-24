@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 15:38:45 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/03/22 13:53:35 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/03/24 17:35:15 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	push(t_stack *a, t_stack *b)
 {
 	t_elem	*tmp;
+
 	if (!a || !a->first)
 		return (-1);
 	add_elem(b, a->first->nbr);
@@ -22,6 +23,7 @@ int	push(t_stack *a, t_stack *b)
 	tmp->prev = NULL;
 	free(a->first);
 	a->first = tmp;
+	a->nbr--;
 	return (0);
 }
 
@@ -62,5 +64,6 @@ int	rotate(t_stack *stack, int reverse)
 		stack->last = tmp;
 		stack->first = stack->first->prev;
 	}
+	g_op_count += 1;
 	return (0);
 }

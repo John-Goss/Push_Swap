@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 15:39:23 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/03/21 17:15:24 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/03/24 16:39:23 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	print_stack(t_stack *stack)
 	elem = stack->first;
 	while (elem)
 	{
-	//	if (opt->c == 1)
-	//		ft_printf("%s%d%s\n", RED, elem->nbr, RST);
-	//	else
+		if (g_opt_c == 1)
+			ft_printf("%s%d%s\n", RED, elem->nbr, RST);
+		else
 			ft_printf("%d\n", elem->nbr);
 		elem = elem->next;
 	}
