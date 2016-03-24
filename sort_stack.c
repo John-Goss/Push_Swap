@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 17:10:21 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/03/24 17:53:15 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/03/24 18:26:44 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,12 @@ int				push_min_b(t_stack *a, t_stack *b)
 
 int				sort_stack(t_stack *a, t_stack *b)
 {
-	push_min_b(a, b);
+	while (a->nbr > 1)
+		push_min_b(a, b);
+	while (b->nbr != 0)
+		push(b, a);
 	print_stack(a);
-	ft_printf("\n---%d\n\n", g_op_count);
+	ft_printf("\n---%d, %d\n\n", a->nbr, b->nbr);
 	print_stack(b);
 	return (0);
 }

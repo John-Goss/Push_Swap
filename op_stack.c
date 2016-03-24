@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 15:38:45 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/03/24 17:56:47 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/03/24 18:26:39 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ int	push(t_stack *a, t_stack *b)
 	if (!a || !a->first)
 		return (-1);
 	add_elem(b, a->first->nbr);
-	tmp = a->first->next;
+	if (a->nbr < 2)
+		tmp = a->first;
+	else
+		tmp = a->first->next;
 	tmp->prev = NULL;
 	free(a->first);
 	a->first = tmp;
