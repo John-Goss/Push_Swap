@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/14 12:24:30 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/03/22 13:44:48 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/03/25 12:24:40 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,6 @@ int					rotate(t_stack *stack, int reverse);
 int					swap(t_stack *stack);
 int					push(t_stack *a, t_stack *b);
 int					sort_stack(t_stack *a, t_stack *b);
+int					is_sort(t_stack *a);
 
 #endif
