@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/14 12:24:30 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/03/25 13:46:57 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/03/25 16:06:12 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int					parse_opt(int ac, char **argv);
 int					parse_error(int error_code);
 int					add_elem(t_stack *stack, long nbr);
 void				free_list(t_stack *stack);
+void				swap_stack(t_stack *a);
 int					parse_stack(int argc, char **argv, int i);
 int					print_stack(t_stack *stack);
 int					rotate(t_stack *stack, int reverse);
@@ -48,5 +49,6 @@ int					swap(t_stack *stack);
 int					push(t_stack *a, t_stack *b);
 int					sort_stack(t_stack *a, t_stack *b);
 int					is_sort(t_stack *a);
+t_elem				*find_min(t_stack *a);
 
 #endif

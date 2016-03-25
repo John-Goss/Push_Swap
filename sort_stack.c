@@ -6,13 +6,13 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 17:10:21 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/03/25 13:42:07 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/03/25 16:30:06 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static	t_elem	*find_min(t_stack *a)
+t_elem	*find_min(t_stack *a)
 {
 	t_elem	*min;
 	t_elem	*ptr;
@@ -32,7 +32,7 @@ static	t_elem	*find_min(t_stack *a)
 	return (min);
 }
 
-int				rotate_to_min(t_stack *a)
+int		rotate_to_min(t_stack *a)
 {
 	int		i;
 	t_elem	*min;
@@ -55,14 +55,14 @@ int				rotate_to_min(t_stack *a)
 	return (0);
 }
 
-int				push_min_b(t_stack *a, t_stack *b)
+int		push_min_b(t_stack *a, t_stack *b)
 {
 	rotate_to_min(a);
 	push(a, b);
 	return (0);
 }
 
-int				is_sort(t_stack *a)
+int		is_sort(t_stack *a)
 {
 	t_elem	*ptr;
 
@@ -76,10 +76,15 @@ int				is_sort(t_stack *a)
 	return (0);
 }
 
-int				sort_stack(t_stack *a, t_stack *b)
+int		sort_stack(t_stack *a, t_stack *b)
 {
 	if (is_sort(a) == 0)
 		return (print_stack(a));
+	else if (a->nbr == 3)
+	{
+		swap_stack(a);
+		return (print_stack(a));
+	}
 	else
 	{
 		while (a->nbr > 1)
