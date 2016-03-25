@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 17:10:21 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/03/25 12:40:53 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/03/25 13:42:07 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,38 +65,28 @@ int				push_min_b(t_stack *a, t_stack *b)
 int				is_sort(t_stack *a)
 {
 	t_elem	*ptr;
-	int		n;
 
 	ptr = a->first;
-	n = a->first->nbr;
-	while (ptr)
+	while (ptr->next)
 	{
-		if (ptr->nbr < n)
-			break ;
+		if (ptr->nbr > ptr->next->nbr)
+			return (-1);
 		ptr = ptr->next;
 	}
-	if (ptr != a->last)
-		return (-1);
 	return (0);
 }
 
 int				sort_stack(t_stack *a, t_stack *b)
 {
 	if (is_sort(a) == 0)
-	{
-		print_stack(a);
-		ft_printf("\n---%d\n\n", g_op_count);
-		return (0);
-	}
+		return (print_stack(a));
 	else
 	{
 		while (a->nbr > 1)
 			push_min_b(a, b);
 		while (b->nbr != 0)
 			push(b, a);
+		return (print_stack(a));
 	}
-	print_stack(a);
-	ft_printf("\n---%d\n\n", g_op_count);
-	print_stack(b);
 	return (0);
 }
