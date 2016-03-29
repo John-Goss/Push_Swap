@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 15:39:23 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/03/29 14:37:40 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/03/29 15:42:39 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ int			print_stack(t_stack *a)
 		ft_printf("\n%sNombre d'operations : %s%d\n", YELLOW, RED, g_op_count);
 	else if (g_opt_r == 1)
 		ft_printf("\nNombre d'operations : %d\n", g_op_count);
+	free_list(a);
 	return (0);
 }
