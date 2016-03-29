@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 17:10:21 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/03/29 13:57:54 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/03/29 19:02:48 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int		sort_stack(t_stack *a, t_stack *b)
 		return (print_stack(a));
 	while (is_sort(a) != 0)
 	{
-		if (last_sort(a) == 0)
+		if (a->nbr > 3 && last_sort(a) == 0)
 			break ;
 		if (a->first->next && a->first->nbr > a->first->next->nbr)
 			swap(a);

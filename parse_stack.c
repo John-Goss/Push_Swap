@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 12:24:32 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/03/29 13:15:43 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/03/29 19:43:14 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,8 +100,9 @@ int				parse_stack(int argc, char **argv, int i)
 				if (ft_isdigit(argv[argc][j]) == 0)
 					return (parse_error(2));
 			}
-		else if (ft_isdigit(*argv[argc]) == 0)
-			return (parse_error(2));
+		while (argv[argc][j++])
+			if (ft_isdigit(argv[argc][j]) == 0)
+				return (parse_error(2));
 		add_elem(&stack_a, ft_atoi_long(argv[argc]));
 	}
 	sort_stack(&stack_a, &stack_b);
