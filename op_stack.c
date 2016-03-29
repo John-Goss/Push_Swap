@@ -6,13 +6,13 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 15:38:45 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/03/24 18:26:39 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/03/29 13:58:00 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	push(t_stack *a, t_stack *b)
+int			push(t_stack *a, t_stack *b)
 {
 	t_elem	*tmp;
 
@@ -31,7 +31,7 @@ int	push(t_stack *a, t_stack *b)
 	return (0);
 }
 
-int	swap(t_stack *stack)
+int			swap(t_stack *stack)
 {
 	int	tmp;
 
@@ -41,10 +41,18 @@ int	swap(t_stack *stack)
 	stack->first->nbr = stack->first->next->nbr;
 	stack->first->next->nbr = tmp;
 	g_op_count += 1;
+	ft_printf("sa ");
 	return (0);
 }
 
-int	rotate(t_stack *stack, int reverse)
+static int	ft_ret(int reverse)
+{
+	g_op_count += 1;
+	reverse == 0 ? ft_printf("ra ") : ft_printf("rra ");
+	return (0);
+}
+
+int			rotate(t_stack *stack, int reverse)
 {
 	t_elem	*tmp;
 
@@ -69,6 +77,5 @@ int	rotate(t_stack *stack, int reverse)
 		stack->last = tmp;
 		stack->first = stack->first->prev;
 	}
-	g_op_count += 1;
-	return (0);
+	return (ft_ret(reverse));
 }

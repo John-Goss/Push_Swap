@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 17:10:21 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/03/25 16:30:06 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/03/29 13:57:54 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,6 @@ int		rotate_to_min(t_stack *a)
 	return (0);
 }
 
-int		push_min_b(t_stack *a, t_stack *b)
-{
-	rotate_to_min(a);
-	push(a, b);
-	return (0);
-}
-
 int		is_sort(t_stack *a)
 {
 	t_elem	*ptr;
@@ -76,22 +69,48 @@ int		is_sort(t_stack *a)
 	return (0);
 }
 
+int		last_sort(t_stack *a)
+{
+	t_elem	*ptr;
+
+	ptr = a->first;
+	while (ptr)
+	{
+		if (ptr->nbr < ptr->next->nbr)
+			ptr = ptr->next;
+		else if (ptr->next->next != NULL)
+			return (1);
+		else
+			break ;
+	}
+	rotate(a, 1);
+	rotate(a, 1);
+	swap(a);
+	rotate(a, 0);
+	rotate(a, 0);
+	return (0);
+}
+
 int		sort_stack(t_stack *a, t_stack *b)
 {
 	if (is_sort(a) == 0)
 		return (print_stack(a));
-	else if (a->nbr == 3)
+	while (is_sort(a) != 0)
 	{
-		swap_stack(a);
-		return (print_stack(a));
+		if (last_sort(a) == 0)
+			break ;
+		if (a->first->next && a->first->nbr > a->first->next->nbr)
+			swap(a);
+		rotate_to_min(a);
+		if (is_sort(a) == 0)
+			break ;
+		push(a, b);
+		ft_printf("pa ");
 	}
-	else
+	while (b->nbr != 0)
 	{
-		while (a->nbr > 1)
-			push_min_b(a, b);
-		while (b->nbr != 0)
-			push(b, a);
-		return (print_stack(a));
+		push(b, a);
+		ft_printf("pb ");
 	}
-	return (0);
+	return (print_stack(a));
 }
