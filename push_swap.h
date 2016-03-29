@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/14 12:24:30 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/03/25 16:06:12 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/03/29 14:29:43 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include "libft.h"
 
 # define RED "\x1b[31m"
+# define YELLOW "\033[1;33m"
+# define BLUE "\033[1;34m"
 # define RST "\x1b[0m"
 
 typedef struct		s_elem
