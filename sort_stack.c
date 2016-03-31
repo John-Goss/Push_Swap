@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 17:10:21 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/03/29 19:02:48 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/03/31 15:31:55 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,12 +105,13 @@ int		sort_stack(t_stack *a, t_stack *b)
 		if (is_sort(a) == 0)
 			break ;
 		push(a, b);
-		ft_printf("pa ");
+		ft_printf("pb ");
 	}
 	while (b->nbr != 0)
 	{
 		push(b, a);
-		ft_printf("pb ");
+		ft_printf("pa ");
 	}
+	ft_putchar('\n');
 	return (print_stack(a));
 }

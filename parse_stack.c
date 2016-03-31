@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 12:24:32 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/03/31 13:04:32 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/03/31 15:06:37 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,14 @@ static	void	init_stacks(t_stack *a, t_stack *b)
 
 static	int		check_dbl(t_stack *stack)
 {
-	t_elem	*ptr;
 	t_elem	*tmp;
 
 	tmp = stack->first;
-	while (tmp)
+	while (tmp->next)
 	{
-		ptr = tmp->next;
-		while (ptr)
-		{
-			if (ptr->nbr == tmp->nbr)
-				return (parse_error(3));
-			ptr = ptr->next;
-		}
 		tmp = tmp->next;
+		if (stack->first->nbr == tmp->nbr)
+			return (parse_error(3));
 	}
 	return (0);
 }
